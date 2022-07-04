@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url('./bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+header h1 {
+  text-align: center;
+  color: #14532d;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  font-family: 'Rubik Moonrocks', cursive;
+  font-size: 4rem;
+}
