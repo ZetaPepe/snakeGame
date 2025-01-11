@@ -8,11 +8,13 @@ let food = {
   y: Math.floor(Math.random() * 15 + 1) * box
 };
 
-// 加载蛇头和蛇身图标
+// 加载蛇头、蛇身和食物图标
 let snakeHeadIcon = new Image();
 snakeHeadIcon.src = 'snake-head.png';  // 替换成你的蛇头图标路径
 let snakeBodyIcon = new Image();
 snakeBodyIcon.src = 'snake-body.png';  // 替换成你的蛇身图标路径
+let foodIcon = new Image();
+foodIcon.src = 'food-icon.png';  // 替换成你的食物图标路径
 
 // 创建背景
 function createBG() {
@@ -41,10 +43,14 @@ function createSnake() {
   }
 }
 
-// 绘制食物
+// 绘制食物（圆形，自定义图标）
 function drawFood() {
-  context.fillStyle = 'red';
-  context.fillRect(food.x, food.y, box, box);
+  context.save();  // 保存当前状态
+  context.beginPath();
+  context.arc(food.x + box / 2, food.y + box / 2, box / 2, 0, 2 * Math.PI);  // 绘制圆形食物
+  context.clip();  // 裁剪区域，确保图标不会超出圆形区域
+  context.drawImage(foodIcon, food.x, food.y, box, box);  // 在圆形区域内绘制图标
+  context.restore();  // 恢复到之前的状态
 }
 
 // 键盘控制
