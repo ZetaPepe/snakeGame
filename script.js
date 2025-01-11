@@ -1,28 +1,12 @@
 let canvas = document.getElementById('snake');
 let context = canvas.getContext('2d');
 let box = 32;
-let snake;
-let direction;
-let food;
-let gameInterval;
-let gameOverScreen = document.getElementById('restartButton'); // 获取按钮
-
-// 初始化游戏
-function initGame() {
-  // 设置初始状态
-  snake = [{ x: 8 * box, y: 8 * box }];
-  direction = 'right';
-  food = {
-    x: Math.floor(Math.random() * 15 + 1) * box,
-    y: Math.floor(Math.random() * 15 + 1) * box
-  };
-
-  // 隐藏游戏结束按钮
-  gameOverScreen.style.display = 'none';
-
-  // 重新设置游戏间隔
-  gameInterval = setInterval(startGame, 400);
-}
+let snake = [{ x: 8 * box, y: 8 * box }];
+let direction = 'right';
+let food = {
+  x: Math.floor(Math.random() * 15 + 1) * box,
+  y: Math.floor(Math.random() * 15 + 1) * box
+};
 
 // 加载蛇头、蛇身和食物图标
 let snakeHeadIcon = new Image();
@@ -105,7 +89,68 @@ canvas.addEventListener('touchend', (event) => {
   }
 }, false);
 
-// 游戏逻辑
+// 游戏初始化和重新开始
+let restartButton = document.getElementById('restartButton');
+
 function startGame() {
   // 处理蛇越界
-  if (snake[0].x > 15 * box && direction == 'right')
+  if (snake[0].x > 15 * box && direction == 'right') snake[0].x = 0;
+  if (snake[0].x < 0 && direction == 'left') snake[0].x = 16 * box;
+  if (snake[0].y > 15 * box && direction == 'down') snake[0].y = 0;
+  if (snake[0].y < 0 && direction == 'up') snake[0].y = 16 * box;
+
+  // 检查蛇是否撞到自己
+  for (let i = 1; i < snake.length; i++) {
+    if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
+      clearInterval(game);
+      restartButton.style.display = 'block';  // 显示重新开始按钮
+      return;
+    }
+  }
+
+  // 更新游戏背景、蛇和食物
+  createBG();
+  createSnake();
+  drawFood();
+
+  let snakeX = snake[0].x;
+  let snakeY = snake[0].y;
+
+  // 根据当前方向更新蛇的位置
+  if (direction == 'right') snakeX += box;
+  if (direction == 'left') snakeX -= box;
+  if (direction == 'up') snakeY -= box;
+  if (direction == 'down') snakeY += box;
+
+  // 检查蛇是否吃到食物
+  if (snakeX != food.x || snakeY != food.y) {
+    snake.pop();
+  } else {
+    food.x = Math.floor(Math.random() * 15 + 1) * box;
+    food.y = Math.floor(Math.random() * 15 + 1) * box;
+  }
+
+  let newHead = {
+    x: snakeX,
+    y: snakeY
+  };
+
+  // 向蛇的头部添加新的位置
+  snake.unshift(newHead);
+}
+
+// 重新开始游戏
+restartButton.addEventListener('click', () => {
+  // 重置游戏状态
+  snake = [{ x: 8 * box, y: 8 * box }];
+  direction = 'right';
+  food.x = Math.floor(Math.random() * 15 + 1) * box;
+  food.y = Math.floor(Math.random() * 15 + 1) * box;
+  restartButton.style.display = 'none';  // 隐藏重新开始按钮
+
+  // 重启游戏
+  game = setInterval(startGame, 400);
+});
+
+// 设置游戏间隔时间来控制速度
+let game = setInterval(startGame, 400);
