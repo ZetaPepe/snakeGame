@@ -3,6 +3,7 @@
   --title-margin-bottom: 10px;  /* 设置标题底部间距 */
   --subtitle-margin-bottom: 110px; /* 设置副标题底部间距 */
   --canvas-margin-top: 50px;      /* 设置 canvas 上方间距 */
+  --social-icons-margin-top: 30px; /* 设置社交媒体图标与 canvas 之间的间距 */
 }
 
 * {
@@ -51,6 +52,29 @@ canvas {
   margin-top: var(--canvas-margin-top);  /* 使用 CSS 变量控制间距 */
 }
 
+/* 设置社交媒体图标样式 */
+.social-icons {
+  position: relative;  /* 保证图标位置相对父元素 */
+  top: var(--social-icons-margin-top); /* 距离 canvas 的间距 */
+  display: flex;
+  gap: 15px;
+  z-index: 2;  /* 确保图标在 canvas 上方 */
+  justify-content: center;  /* 让图标水平居中 */
+}
+
+/* 控制图标样式 */
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
 #restartButton {
   position: absolute;
   top: 50%;
@@ -68,29 +92,6 @@ canvas {
 
 #restartButton:hover {
   background-color: #45a049;
-}
-
-/* 社交媒体图标样式 */
-.social-icons {
-  position: absolute;  /* 使图标跟随页面内容滚动 */
-  bottom: 0px;     /* 距离页面底部 20px */
-  right: 20px;      /* 距离页面右边 20px */
-  display: flex;
-  gap: 15px;
-  z-index: 2;  /* 确保图标在 canvas 上方 */
-}
-
-/* 控制图标样式 */
-.social-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.social-icon:hover {
-  transform: scale(1.1);
 }
 
 /* 使游戏适配小屏幕 */
