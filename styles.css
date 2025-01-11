@@ -45,8 +45,10 @@ header h1 {
   transform: scale(1.1); /* 鼠标悬停时放大图标 */
 }
 
-canvas {
-  width: 100%;
-  height: auto;
-  touch-action: none; /* 禁止默认的触摸滚动行为 */
+@media (max-width: 768px) {
+  canvas {
+    width: 100%;  /* 让 canvas 宽度占满100%屏幕宽度 */
+    height: auto; /* 高度自动调整，保持比例 */
+    touch-action: none;  /* 禁止默认的触摸滚动行为 */
+  }
 }
