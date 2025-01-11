@@ -25,6 +25,7 @@ function drawFood() {
   context.fillRect(food.x, food.y, box, box)
 }
 
+// 键盘控制
 document.addEventListener('keydown', update)
 
 function update(event) {
@@ -33,6 +34,32 @@ function update(event) {
   if (event.keyCode == 39 && direction != 'left') direction = 'right'
   if (event.keyCode == 40 && direction != 'up') direction = 'down'
 }
+
+// 触摸控制
+let touchStartX, touchStartY, touchEndX, touchEndY;
+canvas.addEventListener('touchstart', (event) => {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+}, false);
+
+canvas.addEventListener('touchend', (event) => {
+  touchEndX = event.changedTouches[0].clientX;
+  touchEndY = event.changedTouches[0].clientY;
+
+  let deltaX = touchEndX - touchStartX;
+  let deltaY = touchEndY - touchStartY;
+
+  // 判断滑动方向
+  if (Math.abs(deltaX) > Math.abs(deltaY)) {
+    // 水平滑动
+    if (deltaX > 0 && direction != 'left') direction = 'right';  // 向右滑动
+    if (deltaX < 0 && direction != 'right') direction = 'left';  // 向左滑动
+  } else {
+    // 垂直滑动
+    if (deltaY > 0 && direction != 'up') direction = 'down';    // 向下滑动
+    if (deltaY < 0 && direction != 'down') direction = 'up';    // 向上滑动
+  }
+}, false);
 
 function startGame() {
   if (snake[0].x > 15 * box && direction == 'right') snake[0].x = 0
