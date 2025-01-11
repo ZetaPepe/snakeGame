@@ -8,11 +8,11 @@ let food = {
   y: Math.floor(Math.random() * 15 + 1) * box
 };
 
-// 加载蛇和食物图标
-let snakeIcon = new Image();
-snakeIcon.src = 'snake-icon.png';  // 替换成你的蛇图标路径
-let foodIcon = new Image();
-foodIcon.src = 'food-icon.png';  // 替换成你的食物图标路径
+// 加载蛇头和蛇身图标
+let snakeHeadIcon = new Image();
+snakeHeadIcon.src = 'snake-head.png';  // 替换成你的蛇头图标路径
+let snakeBodyIcon = new Image();
+snakeBodyIcon.src = 'snake-body.png';  // 替换成你的蛇身图标路径
 
 // 创建背景
 function createBG() {
@@ -22,14 +22,19 @@ function createBG() {
 
 // 创建蛇
 function createSnake() {
-  for (let i = 0; i < snake.length; i++) {
-    context.drawImage(snakeIcon, snake[i].x, snake[i].y, box, box);  // 使用图标绘制蛇
+  // 绘制蛇的头部（第一个元素）
+  context.drawImage(snakeHeadIcon, snake[0].x, snake[0].y, box, box); 
+
+  // 绘制蛇的身体（从第二个元素开始）
+  for (let i = 1; i < snake.length; i++) {
+    context.drawImage(snakeBodyIcon, snake[i].x, snake[i].y, box, box); // 使用蛇身图标
   }
 }
 
 // 绘制食物
 function drawFood() {
-  context.drawImage(foodIcon, food.x, food.y, box, box);  // 使用图标绘制食物
+  context.fillStyle = 'red';
+  context.fillRect(food.x, food.y, box, box);
 }
 
 // 键盘控制
@@ -116,4 +121,4 @@ function startGame() {
 }
 
 // 设置游戏间隔时间来控制速度
-let game = setInterval(startGame, 600);
+let game = setInterval(startGame, 400);
