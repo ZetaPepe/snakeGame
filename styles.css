@@ -1,10 +1,10 @@
 /* 使用 CSS 变量来控制间距 */
 :root {
-  --title-margin-top: 20px;  /* 设置标题顶部间距 */
+  --title-margin-top: 100px;  /* 设置标题顶部间距 */
   --title-margin-bottom: 10px;  /* 设置标题底部间距 */
-  --subtitle-margin-bottom: 20px; /* 缩小副标题底部间距 */
+  --subtitle-margin-bottom: 100px; /* 缩小副标题底部间距 */
   --canvas-margin-top: 20px;      /* 缩小 canvas 上方间距 */
-  --social-icons-margin-top: 15px; /* 缩小社交媒体图标与 canvas 之间的间距 */
+  --social-icons-margin-top: 50px; /* 缩小社交媒体图标与 canvas 之间的间距 */
 }
 
 * {
@@ -102,7 +102,7 @@ canvas {
 /* 使游戏适配小屏幕 */
 @media (max-width: 768px) {
   canvas {
-    width: 90%;  /* 让 canvas 宽度占满 90% 屏幕宽度 */
+    width: 100%;  /* 让 canvas 宽度占满 90% 屏幕宽度 */
     height: auto; /* 高度自动调整，保持比例 */
     touch-action: none;  /* 禁止默认的触摸滚动行为 */
   }
