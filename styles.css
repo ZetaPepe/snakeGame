@@ -1,5 +1,6 @@
 /* 使用 CSS 变量来控制间距 */
 :root {
+  --title-margin-top: 20px;  /* 设置标题顶部间距 */
   --title-margin-bottom: 10px;  /* 设置标题底部间距 */
   --subtitle-margin-bottom: 110px; /* 设置副标题底部间距 */
   --canvas-margin-top: 50px;      /* 设置 canvas 上方间距 */
@@ -15,7 +16,7 @@
 body {
   height: 95vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;  /* 修改为顶部对齐 */
   align-items: center;
   flex-direction: column;
   background-image: url('./bg.jpg');
@@ -23,6 +24,7 @@ body {
   background-size: cover;
   background-position: center;
   overflow: hidden;  /* 防止页面滚动 */
+  padding-top: var(--title-margin-top);  /* 给页面顶部增加间距 */
 }
 
 header h1 {
