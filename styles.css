@@ -1,3 +1,4 @@
+/* 禁止所有元素的默认间距和内边距 */
 * {
   margin: 0;
   padding: 0;
@@ -5,25 +6,24 @@
 }
 
 html, body {
-  height: 100%; /* 保证页面填满整个屏幕 */
-  overflow: hidden; /* 禁止滚动条 */
+  height: 100%;  /* 保证页面完全填充屏幕 */
+  overflow: hidden; /* 禁用滚动条 */
 }
 
 body {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* 内容居中显示 */
   align-items: center;
-  flex-direction: column;
   background-image: url('./bg.jpg');
   background-repeat: no-repeat;
-  background-size: cover; /* 保证背景图铺满 */
+  background-size: cover; /* 背景图覆盖整个屏幕 */
   background-position: center;
 }
 
 .container {
-  width: 1024px; /* 固定宽度 */
+  width: 1024px; /* 设置固定宽度为 1024px */
   margin: 0 auto; /* 居中显示 */
-  position: relative; /* 保证绝对定位的社交图标可用 */
+  position: relative; /* 保证社交图标定位不受影响 */
 }
 
 header h1 {
