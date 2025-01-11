@@ -23,7 +23,7 @@ header h1 {
   margin-bottom: 200px;
   text-transform: uppercase;
   font-family: 'Rubik Moonrocks', cursive;
-  font-size: 4rem;
+  font-size: 3rem;
   z-index: 1;  /* 保证标题在 canvas 上方 */
 }
 
