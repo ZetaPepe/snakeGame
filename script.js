@@ -116,4 +116,4 @@ function startGame() {
 }
 
 // 设置游戏间隔时间来控制速度
-let game = setInterval(startGame, 400);
+let game = setInterval(startGame, 600);
