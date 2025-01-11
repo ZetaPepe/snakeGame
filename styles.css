@@ -5,8 +5,10 @@
 }
 
 body {
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;  /* 禁止水平滚动 */
-  height: 100vh; /* 使用 100vh 使页面在手机和电脑上保持一致 */
+  height: 100vh; /* 使用 100vh 确保页面填满屏幕高度 */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +20,7 @@ body {
 }
 
 .container {
-  width: 1024px; /* 固定宽度为1024px */
+  width: 1024px; /* 固定宽度 */
   margin: 0 auto; /* 居中显示 */
 }
 
