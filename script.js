@@ -30,9 +30,14 @@ function createSnake() {
   context.drawImage(snakeHeadIcon, snake[0].x, snake[0].y, box, box);  // 在圆形区域内绘制图标
   context.restore();  // 恢复到之前的状态
 
-  // 绘制蛇的身体（从第二个元素开始）
+  // 绘制蛇的身体（从第二个元素开始），每个身体部分也是圆形
   for (let i = 1; i < snake.length; i++) {
+    context.save();  // 保存当前状态
+    context.beginPath();
+    context.arc(snake[i].x + box / 2, snake[i].y + box / 2, box / 2, 0, 2 * Math.PI);  // 绘制圆形蛇身
+    context.clip();  // 裁剪区域，确保图标不会超出圆形区域
     context.drawImage(snakeBodyIcon, snake[i].x, snake[i].y, box, box); // 使用蛇身图标
+    context.restore();  // 恢复到之前的状态
   }
 }
 
