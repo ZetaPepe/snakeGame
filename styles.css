@@ -73,7 +73,7 @@ canvas {
 /* 社交媒体图标样式 */
 .social-icons {
   position: absolute;  /* 使图标跟随页面内容滚动 */
-  bottom: 10px;     /* 距离页面底部 20px */
+  bottom: 0px;     /* 距离页面底部 20px */
   right: 20px;      /* 距离页面右边 20px */
   display: flex;
   gap: 15px;
