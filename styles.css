@@ -2,9 +2,9 @@
 :root {
   --title-margin-top: 20px;  /* 设置标题顶部间距 */
   --title-margin-bottom: 10px;  /* 设置标题底部间距 */
-  --subtitle-margin-bottom: 110px; /* 设置副标题底部间距 */
-  --canvas-margin-top: 50px;      /* 设置 canvas 上方间距 */
-  --social-icons-margin-top: 30px; /* 设置社交媒体图标与 canvas 之间的间距 */
+  --subtitle-margin-bottom: 20px; /* 缩小副标题底部间距 */
+  --canvas-margin-top: 20px;      /* 缩小 canvas 上方间距 */
+  --social-icons-margin-top: 15px; /* 缩小社交媒体图标与 canvas 之间的间距 */
 }
 
 * {
@@ -14,7 +14,7 @@
 }
 
 body {
-  height: 95vh;
+  min-height: 100vh;  /* 确保 body 的高度占满整个视口 */
   display: flex;
   justify-content: flex-start;  /* 修改为顶部对齐 */
   align-items: center;
@@ -33,14 +33,14 @@ header h1 {
   margin-bottom: var(--title-margin-bottom);  /* 使用 CSS 变量控制间距 */
   text-transform: uppercase;
   font-family: 'Rubik Moonrocks', cursive;
-  font-size: 3rem;
+  font-size: 2.5rem;  /* 缩小标题字体大小 */
   z-index: 1;  /* 保证标题在 canvas 上方 */
 }
 
 /* 设置副标题样式 */
 header .subtitle {
   text-align: center;
-  font-size: 1.5rem;  /* 设置副标题的字体大小 */
+  font-size: 1.2rem;  /* 缩小副标题字体大小 */
   color: black;  /* 设置副标题的颜色 */
   margin-top: 0;  /* 去掉默认的顶部间距 */
   margin-bottom: var(--subtitle-margin-bottom); /* 使用 CSS 变量控制间距 */
@@ -52,22 +52,25 @@ canvas {
   position: relative;
   z-index: 0;  /* 保证 canvas 位于标题下方 */
   margin-top: var(--canvas-margin-top);  /* 使用 CSS 变量控制间距 */
+  width: 512px;  /* 设置 canvas 固定宽度 */
+  height: 512px; /* 设置 canvas 固定高度 */
 }
 
 /* 设置社交媒体图标样式 */
 .social-icons {
   position: relative;  /* 保证图标位置相对父元素 */
-  top: var(--social-icons-margin-top); /* 距离 canvas 的间距 */
+  margin-top: var(--social-icons-margin-top); /* 距离 canvas 的间距 */
   display: flex;
   gap: 15px;
   z-index: 2;  /* 确保图标在 canvas 上方 */
   justify-content: center;  /* 让图标水平居中 */
+  margin-bottom: 10px; /* 确保图标紧贴页面底部 */
 }
 
 /* 控制图标样式 */
 .social-icon {
-  width: 40px;
-  height: 40px;
+  width: 35px;  /* 缩小图标大小 */
+  height: 35px;
   border-radius: 50%;
   object-fit: cover;
   transition: transform 0.3s ease;
@@ -86,7 +89,7 @@ canvas {
   background-color: #4CAF50;
   color: white;
   border: none;
-  font-size: 18px;
+  font-size: 16px;  /* 缩小按钮字体大小 */
   cursor: pointer;
   display: none;  /* 初始隐藏 */
   z-index: 2;  /* 保证按钮位于画布之上 */
@@ -99,8 +102,15 @@ canvas {
 /* 使游戏适配小屏幕 */
 @media (max-width: 768px) {
   canvas {
-    width: 100%;  /* 让 canvas 宽度占满100%屏幕宽度 */
+    width: 90%;  /* 让 canvas 宽度占满 90% 屏幕宽度 */
     height: auto; /* 高度自动调整，保持比例 */
     touch-action: none;  /* 禁止默认的触摸滚动行为 */
+  }
+  .social-icons {
+    margin-top: 10px; /* 减少小屏幕上图标的间距 */
+  }
+  .social-icon {
+    width: 30px;  /* 缩小图标大小以适应小屏幕 */
+    height: 30px;
   }
 }
