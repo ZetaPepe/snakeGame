@@ -4,30 +4,26 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%; /* 保证页面填满整个屏幕 */
+  overflow: hidden; /* 禁止滚动条 */
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;  /* 禁止水平滚动 */
-  height: 100vh; /* 使用 100vh 确保页面填满屏幕高度 */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-image: url('./bg.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; /* 保证背景图铺满 */
   background-position: center;
 }
 
-/* 设置页面的容器宽度为固定值 1024px */
 .container {
-  width: 1024px; /* 固定宽度为1024px */
+  width: 1024px; /* 固定宽度 */
   margin: 0 auto; /* 居中显示 */
-}
-
-/* 强制所有元素（如header、canvas等）不要超出容器 */
-header, .social-icons {
-  width: 100%;
+  position: relative; /* 保证绝对定位的社交图标可用 */
 }
 
 header h1 {
@@ -37,6 +33,10 @@ header h1 {
   text-transform: uppercase;
   font-family: 'Rubik Moonrocks', cursive;
   font-size: 4rem;
+}
+
+canvas {
+  margin-bottom: 20px;
 }
 
 .social-icons {
