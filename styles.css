@@ -1,6 +1,6 @@
 /* 使用 CSS 变量来控制间距 */
 :root {
-  --title-margin-top: 100px;  /* 设置标题顶部间距 */
+  --title-margin-top: 50px;  /* 设置标题顶部间距 */
   --title-margin-bottom: 10px;  /* 设置标题底部间距 */
   --subtitle-margin-bottom: 100px; /* 缩小副标题底部间距 */
   --canvas-margin-top: 20px;      /* 缩小 canvas 上方间距 */
