@@ -102,4 +102,4 @@ function startGame() {
   snake.unshift(newHead)
 }
 
-let game = setInterval(startGame, 300)
+let game = setInterval(startGame, 400)
