@@ -25,7 +25,7 @@ header h1 {
   font-size: 4rem;
 }
 
-/* 将社交图标固定在页面右上角 */
+/* 使用固定宽度，移除媒体查询 */
 .social-icons {
   position: absolute;
   top: 20px;
@@ -34,13 +34,15 @@ header h1 {
   gap: 15px;
 }
 
-/* 控制图标样式 */
+/* 图标的大小 */
 .social-icon {
-  width: 30px;  /* 设置图标的大小 */
+  width: 30px;
   height: 30px;
-  transition: transform 0.3s ease; /* 增加一个过渡效果 */
+  transition: transform 0.3s ease;
 }
 
 .social-icon:hover {
-  transform: scale(1.1); /* 鼠标悬停时放大图标 */
+  transform: scale(1.1);
 }
+
+/* 禁用媒体查询或其他自适应设计 */
