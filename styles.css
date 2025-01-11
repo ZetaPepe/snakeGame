@@ -1,29 +1,19 @@
-/* 禁止所有元素的默认间距和内边距 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;  /* 保证页面完全填充屏幕 */
-  overflow: hidden; /* 禁用滚动条 */
-}
-
 body {
+  height: 95vh;
   display: flex;
-  justify-content: center; /* 内容居中显示 */
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
   background-image: url('./bg.jpg');
   background-repeat: no-repeat;
-  background-size: cover; /* 背景图覆盖整个屏幕 */
+  background-size: cover;
   background-position: center;
-}
-
-.container {
-  width: 1024px; /* 设置固定宽度为 1024px */
-  margin: 0 auto; /* 居中显示 */
-  position: relative; /* 保证社交图标定位不受影响 */
 }
 
 header h1 {
@@ -35,24 +25,22 @@ header h1 {
   font-size: 4rem;
 }
 
-canvas {
-  margin-bottom: 20px;
-}
-
+/* 改成绝对定位，使图标随着页面内容滚动 */
 .social-icons {
-  position: absolute;
+  position: absolute;  /* 使图标跟随页面内容滚动 */
   top: 20px;
   right: 20px;
   display: flex;
   gap: 15px;
 }
 
+/* 控制图标样式 */
 .social-icon {
-  width: 30px;
+  width: 30px;  /* 设置图标的大小 */
   height: 30px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; /* 增加一个过渡效果 */
 }
 
 .social-icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* 鼠标悬停时放大图标 */
 }
