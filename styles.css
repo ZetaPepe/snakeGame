@@ -20,11 +20,19 @@ body {
 header h1 {
   text-align: center;
   color: black;
-  margin-bottom: 200px;
+  margin-bottom: 30px;
   text-transform: uppercase;
   font-family: 'Rubik Moonrocks', cursive;
   font-size: 3rem;
   z-index: 1;  /* 保证标题在 canvas 上方 */
+}
+
+/* 添加新的 p 元素样式 */
+header .subtitle {
+  text-align: center;
+  font-size: 1.5rem;  /* 设置副标题的字体大小 */
+  color: #fff;  /* 设置副标题的颜色 */
+  margin-top: 0;  /* 去掉默认的顶部间距 */
 }
 
 /* 调整 canvas 元素的位置和大小 */
