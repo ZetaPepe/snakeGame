@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=1024, initial-scale=1.0, user-scalable=no" /> <!-- 禁止缩放，固定宽度 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- 设置 PNG 格式的 favicon 图标 -->
     <link rel="icon" href="favicon.png" type="image/png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,19 +19,19 @@
     <title>Snake Game</title>
   </head>
   <body>
-    <div class="container">
-      <header>
-        <h1>Snake Game</h1>
-      </header>
-      <canvas id="snake" width="512" height="512"></canvas>
-      <div class="social-icons">
-        <a href="https://t.me/your_telegram_link" target="_blank">
-          <img src="images/telegram-icon.png" alt="Telegram" class="social-icon" />
-        </a>
-        <a href="https://twitter.com/your_twitter_link" target="_blank">
-          <img src="images/twitter-icon.png" alt="Twitter" class="social-icon" />
-        </a>
-      </div>
+    <header>
+      <h1>Snake Game</h1>
+    </header>
+    <canvas id="snake" width="512" height="512"></canvas>
+
+    <!-- 社交媒体图标 -->
+    <div class="social-icons">
+      <a href="https://t.me/your_telegram_link" target="_blank">
+        <img src="images/telegram-icon.png" alt="Telegram" class="social-icon" />
+      </a>
+      <a href="https://twitter.com/your_twitter_link" target="_blank">
+        <img src="images/twitter-icon.png" alt="Twitter" class="social-icon" />
+      </a>
     </div>
   </body>
 </html>
