@@ -16,10 +16,6 @@ snakeBodyIcon.src = 'snake-body.png';  // 替换成你的蛇身图标路径
 let foodIcon = new Image();
 foodIcon.src = 'food-icon.png';  // 替换成你的食物图标路径
 
-// 游戏控制变量
-let game;
-let gameInterval = 400;  // 初始游戏间隔时间
-
 // 创建背景
 function createBG() {
   context.fillStyle = '#141414';
@@ -103,10 +99,9 @@ function startGame() {
   // 检查蛇是否撞到自己
   for (let i = 1; i < snake.length; i++) {
     if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
-      clearInterval(game); // 停止游戏
-      alert('Game over :(');  // 弹出结束提示
-      resetGame();  // 重置游戏
-      return; // 不继续执行
+      clearInterval(game);
+      alert('Game over :(');
+      startGame();
     }
   }
 
@@ -141,13 +136,5 @@ function startGame() {
   snake.unshift(newHead);
 }
 
-// 重置游戏函数
-function resetGame() {
-  // 重置游戏状态
-  snake = [{ x: 8 * box, y: 8 * box }];
-  direction = 'right';
-  food.x = Math.floor(Math.random() * 15 + 1) * box;
-  food.y = Math.floor(Math.random() * 15 + 1) * box;
-
-  // 重新开始游戏
-  game = setInterv
+// 设置游戏间隔时间来控制速度
+let game = setInterval(startGame, 400);
