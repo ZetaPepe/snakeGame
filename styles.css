@@ -31,7 +31,7 @@ header h1 {
 header .subtitle {
   text-align: center;
   font-size: 1.5rem;  /* 设置副标题的字体大小 */
-  color: #fff;  /* 设置副标题的颜色 */
+  color: black;  /* 设置副标题的颜色 */
   margin-top: 0;  /* 去掉默认的顶部间距 */
 }
 
