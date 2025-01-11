@@ -19,9 +19,15 @@ body {
   background-position: center;
 }
 
+/* 设置页面的容器宽度为固定值 1024px */
 .container {
-  width: 1024px; /* 固定宽度 */
+  width: 1024px; /* 固定宽度为1024px */
   margin: 0 auto; /* 居中显示 */
+}
+
+/* 强制所有元素（如header、canvas等）不要超出容器 */
+header, .social-icons {
+  width: 100%;
 }
 
 header h1 {
