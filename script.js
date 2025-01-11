@@ -22,8 +22,13 @@ function createBG() {
 
 // 创建蛇
 function createSnake() {
-  // 绘制蛇的头部（第一个元素）
-  context.drawImage(snakeHeadIcon, snake[0].x, snake[0].y, box, box); 
+  // 绘制蛇的头部（第一个元素）- 圆形，使用自定义图标
+  context.save();  // 保存当前状态
+  context.beginPath();
+  context.arc(snake[0].x + box / 2, snake[0].y + box / 2, box / 2, 0, 2 * Math.PI); // 绘制圆形蛇头
+  context.clip();  // 裁剪区域，确保图标不会超出圆形区域
+  context.drawImage(snakeHeadIcon, snake[0].x, snake[0].y, box, box);  // 在圆形区域内绘制图标
+  context.restore();  // 恢复到之前的状态
 
   // 绘制蛇的身体（从第二个元素开始）
   for (let i = 1; i < snake.length; i++) {
