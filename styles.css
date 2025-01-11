@@ -52,7 +52,7 @@ canvas {
   position: relative;
   z-index: 0;  /* 保证 canvas 位于标题下方 */
   margin-top: var(--canvas-margin-top);  /* 使用 CSS 变量控制间距 */
-  width: 512px;  /* 设置 canvas 固定宽度 */
+  width: 700px;  /* 设置 canvas 固定宽度 */
   height: 700px; /* 设置 canvas 固定高度 */
 }
 
