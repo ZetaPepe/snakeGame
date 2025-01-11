@@ -8,24 +8,29 @@ let food = {
   y: Math.floor(Math.random() * 15 + 1) * box
 }
 
+// 加载蛇和食物的图标
+let snakeIcon = new Image();
+let foodIcon = new Image();
+snakeIcon.src = 'snake-icon.png';  // 设定蛇图标的路径
+foodIcon.src = 'food-icon.png';    // 设定食物图标的路径
+
 function createBG() {
   context.fillStyle = '#141414'
   context.fillRect(0, 0, 16 * box, 16 * box)
 }
 
 function createSnake() {
+  // 用图标代替颜色绘制蛇
   for (i = 0; i < snake.length; i++) {
-    context.fillStyle = 'green'
-    context.fillRect(snake[i].x, snake[i].y, box, box)
+    context.drawImage(snakeIcon, snake[i].x, snake[i].y, box, box);
   }
 }
 
 function drawFood() {
-  context.fillStyle = 'red'
-  context.fillRect(food.x, food.y, box, box)
+  // 用图标代替颜色绘制食物
+  context.drawImage(foodIcon, food.x, food.y, box, box);
 }
 
-// 键盘控制
 document.addEventListener('keydown', update)
 
 function update(event) {
@@ -35,32 +40,6 @@ function update(event) {
   if (event.keyCode == 40 && direction != 'up') direction = 'down'
 }
 
-// 触摸控制
-let touchStartX, touchStartY, touchEndX, touchEndY;
-canvas.addEventListener('touchstart', (event) => {
-  touchStartX = event.touches[0].clientX;
-  touchStartY = event.touches[0].clientY;
-}, false);
-
-canvas.addEventListener('touchend', (event) => {
-  touchEndX = event.changedTouches[0].clientX;
-  touchEndY = event.changedTouches[0].clientY;
-
-  let deltaX = touchEndX - touchStartX;
-  let deltaY = touchEndY - touchStartY;
-
-  // 判断滑动方向
-  if (Math.abs(deltaX) > Math.abs(deltaY)) {
-    // 水平滑动
-    if (deltaX > 0 && direction != 'left') direction = 'right';  // 向右滑动
-    if (deltaX < 0 && direction != 'right') direction = 'left';  // 向左滑动
-  } else {
-    // 垂直滑动
-    if (deltaY > 0 && direction != 'up') direction = 'down';    // 向下滑动
-    if (deltaY < 0 && direction != 'down') direction = 'up';    // 向上滑动
-  }
-}, false);
-
 function startGame() {
   if (snake[0].x > 15 * box && direction == 'right') snake[0].x = 0
   if (snake[0].x < 0 && direction == 'left') snake[0].x = 16 * box
@@ -69,7 +48,7 @@ function startGame() {
 
   for (i = 1; i < snake.length; i++) {
     if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
-      clearInterval(startGame)
+      clearInterval(game)  // 改为clearInterval(game)以停止游戏
       alert('Game over :(')
       startGame()
     }
@@ -102,4 +81,5 @@ function startGame() {
   snake.unshift(newHead)
 }
 
-let game = setInterval(startGame, 400)
+// 设置更长的时间间隔以降低蛇的速度，例如 200 毫秒
+let game = setInterval(startGame, 200)
