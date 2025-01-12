@@ -51,7 +51,7 @@ header .subtitle {
 header .ca-note {
   text-align: center;
   font-size: 1rem;  /* 设置字体大小 */
-  color: #ff0000; /* 使用红色文字以示强调 */
+  color: black; /* 使用红色文字以示强调 */
   margin-bottom: var(--ca-note-margin-bottom); /* 与其他内容保持间距一致 */
 }
 
