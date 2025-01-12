@@ -149,8 +149,8 @@ restartButton.addEventListener('click', () => {
   restartButton.style.display = 'none';  // 隐藏重新开始按钮
 
   // 重启游戏
-  game = setInterval(startGame, 400);
+  game = setInterval(startGame, 500);
 });
 
 // 设置游戏间隔时间来控制速度
-let game = setInterval(startGame, 400);
+let game = setInterval(startGame, 500);
